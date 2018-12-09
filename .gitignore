@@ -10,6 +10,10 @@ target/
 .classpath
 .project
 hbase/target/
+spark/target/
 storm/target/
+flink/target/
 hbase/test/
 storm/test/
+spark/test/
+flink/test/

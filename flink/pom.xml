@@ -9,9 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spark</artifactId>
+    <artifactId>flink</artifactId>
 
-    <name>spark</name>
+    <name>flink</name>
+    <!-- FIXME change it to the project's website -->
+    <url>http://www.example.com</url>
     <build>
         <plugins>
             <plugin>
@@ -48,7 +50,7 @@
                     <archive>
                         <manifest>
                             <!-- 此处指定main方法入口的class -->
-                            <mainClass>com.giggs.SparkDemo</mainClass>
+                            <mainClass>com.giggs</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -64,39 +66,22 @@
             </plugin>
 
         </plugins>
-        <finalName>spark001</finalName>
+        <finalName>storm002</finalName>
     </build>
+
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-sql -->
+        <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-core -->
         <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-sql_2.11</artifactId>
-            <version>2.3.2</version>
+        <groupId>org.apache.flink</groupId>
+        <artifactId>flink-core</artifactId>
+        <version>1.7.0</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-streaming -->
+        <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-clients -->
         <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-streaming_2.11</artifactId>
-            <version>2.3.2</version>
-            <scope>provided</scope>
+        <groupId>org.apache.flink</groupId>
+        <artifactId>flink-clients_2.12</artifactId>
+        <version>1.7.0</version>
         </dependency>
-       <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-core -->
-        <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-core_2.11</artifactId>
-            <version>2.3.2</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-streaming-kafka -->
-        <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-streaming-kafka_2.11</artifactId>
-            <version>1.6.3</version>
-        </dependency>
-
     </dependencies>
-
-
-
 
 </project>
