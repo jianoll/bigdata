@@ -1,0 +1,15 @@
+/test
+.idea/
+*.pyc
+*.iml
+*.txt
+.settings/
+bin/
+out/
+target/
+.classpath
+.project
+hbase/target/
+storm/target/
+hbase/test/
+storm/test/
