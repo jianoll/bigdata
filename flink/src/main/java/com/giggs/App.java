@@ -29,7 +29,7 @@ public class App {
 //        properties.setProperty("zookeeper.connect", "127.0.0.1:2181");
         properties.setProperty("group.id", "flink001");
 
-        FlinkKafkaConsumer09<String> flinkConsumer = new FlinkKafkaConsumer09<String>("flink_test", new SimpleStringSchema(), properties);
+        FlinkKafkaConsumer09<String> flinkConsumer = new FlinkKafkaConsumer09<String>("flink_demo", new SimpleStringSchema(), properties);
 
         DataStream<String> stream = env.addSource(flinkConsumer);
         DataStream<Tuple2<String, Integer>> counts = stream.flatMap(new LineSplitter()).keyBy(0).sum(1);
