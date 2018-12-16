@@ -50,7 +50,9 @@
                     <archive>
                         <manifest>
                             <!-- 此处指定main方法入口的class -->
-                            <mainClass>com.giggs.App</mainClass>
+                            <!--<mainClass>com.giggs.RedisDemo</mainClass>-->
+                            <mainClass>com.giggs.FileDemo</mainClass>
+
                         </manifest>
                     </archive>
                 </configuration>
@@ -66,7 +68,7 @@
             </plugin>
 
         </plugins>
-        <finalName>flink002</finalName>
+        <finalName>flink005</finalName>
     </build>
 
     <dependencies>

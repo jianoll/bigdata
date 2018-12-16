@@ -7,6 +7,7 @@ import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.streaming.api.functions.source.SourceFunction;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer09;
 import org.apache.flink.streaming.connectors.redis.RedisSink;
 import org.apache.flink.streaming.connectors.redis.common.config.FlinkJedisPoolConfig;
@@ -36,6 +37,18 @@ public class App {
         FlinkKafkaConsumer09<String> flinkConsumer = new FlinkKafkaConsumer09<String>(
                 "flink_demo", new SimpleStringSchema(), properties);
 
+        //自定义数据源
+//        DataStream<String> stream = env.addSource(new SourceFunction<String>() {
+//            @Override
+//            public void run(SourceContext<String> sourceContext) throws Exception {
+//
+//            }
+//
+//            @Override
+//            public void cancel() {
+//
+//            }
+//        });
         DataStream<String> stream = env.addSource(flinkConsumer);
 //        DataStream<Tuple2<String,Integer>> wordNum = stream.flatMap()
         DataStream<Tuple2<String, Integer>> counts = stream.flatMap(new LineSplitter())
@@ -67,7 +80,8 @@ public class App {
     }
     public static final class RedisExampleMapper implements RedisMapper<Tuple2<String,Integer>> {
         public RedisCommandDescription getCommandDescription() {
-            return new RedisCommandDescription(RedisCommand.HSET, "flink");
+//            return new RedisCommandDescription(RedisCommand.SET);//以单独键值对写入
+            return new RedisCommandDescription(RedisCommand.HSET, "flink");//以hset写入redis
         }
 
         public String getKeyFromData(Tuple2<String, Integer> data) {
