@@ -15,6 +15,7 @@
     <module>hbase</module>
     <module>flink</module>
     <module>flink</module>
+      <module>elasticsearch</module>
   </modules>
 
   <name>bigdata</name>
@@ -114,6 +115,18 @@
           <version>2.0.0</version>
       </dependency>
 
+      <!--读取mysql的binlog-->
+      <!--<dependency>-->
+          <!--<groupId>com.github.shyiko</groupId>-->
+          <!--<artifactId>mysql-binlog-connector-java</artifactId>-->
+          <!--<version>0.13.0</version>-->
+      <!--</dependency>-->
+      <!-- https://mvnrepository.com/artifact/com.alibaba.otter/canal.protocol -->
+      <!--<dependency>-->
+          <!--<groupId>com.alibaba.otter</groupId>-->
+          <!--<artifactId>canal.protocol</artifactId>-->
+          <!--<version>1.1.2</version>-->
+      <!--</dependency>-->
 
 
   </dependencies>
