@@ -1,4 +1,4 @@
-package com.jxjr.kstream;
+package com.giggs;
 import kafka.serializer.StringDecoder;
 import org.apache.spark.SparkConf;
 import org.apache.spark.storage.StorageLevel;
@@ -18,7 +18,6 @@ import redis.clients.jedis.JedisPool;
 import scala.Tuple1;
 import scala.Tuple2;
 import java.util.*;
-import com.jxjr.util.RedisPool;
 import java.util.concurrent.atomic.AtomicReference;
 import org.apache.spark.streaming.kafka.KafkaUtils;
 
@@ -88,7 +87,8 @@ public class SparkToRedis {
         ).foreachRDD(rdd -> {
             rdd.foreachPartition(( partitionOfRecords) -> {
 
-                RedisPool pool = new RedisPool("172.17.0.7",6379,10);
+//                RedisPool pool = new RedisPool("172.17.0.7",6379,10);
+                RedisPool pool = new RedisPool("172.17.0.7:9002");
                 Jedis redis = pool.getClient();
                 partitionOfRecords.forEachRemaining(record ->{
                     redis.incrBy(record._1, Long.parseLong(record._2));

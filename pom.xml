@@ -9,13 +9,11 @@
   <version>0.0.1</version>
   <modules>
     <module>storm</module>
-    <module>storm</module>
     <module>spark</module>
     <module>hbase</module>
-    <module>hbase</module>
-    <module>flink</module>
     <module>flink</module>
       <module>elasticsearch</module>
+      <module>kafka</module>
   </modules>
 
   <name>bigdata</name>
